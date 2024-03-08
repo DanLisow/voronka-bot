@@ -1,0 +1,64 @@
+extends main.pug
+
+block append header
+    include ../includes/header-user.pug
+
+block content
+    - var lesson = data.lesson.name
+    - var userId = data.userId
+    .user
+        .user__inner.container
+            .user__info
+                .user__image
+                    img(src="" + data.image, alt='', width='201', height='201')
+                .user__name
+                    p Уровень #{data.lesson.actual.key}, звезда арбитража
+                    h3 @#{data.username}
+            .user__lives
+                p Жизни
+                .user__lives-count
+                    - for (var x = data.lives; x > 0; x--)
+                        img.user__lives-count--remain(src='/images/live.svg', alt='', width='58', height='57')
+                    - for (var x = 0; x < 3 - data.lives; x++)
+                        img(src='/images/live.svg', alt='', width='58', height='57')
+            .user__rate
+                p Достижения
+                .user__rate-count
+                    img(src='/images/star.svg', alt='', width='57', height='57')
+                    img(src='/images/star.svg', alt='', width='57', height='57')
+                    img(src='/images/star.svg', alt='', width='57', height='57')
+            .user__progress
+                p Твой прогресс
+                .user__progress-value
+                    progress#progress(value='' + data.lesson.actual.key, max='5')
+    .lesson
+        .lesson__inner.container-lesson
+            .lesson__video
+                h2 Урок #{data.lesson.key}
+                block video
+            .lesson__task
+                h2 Задание
+                block task
+                form.lesson__form(id="lesson-form")
+                    textarea#task_text(name='answer', placeholder='Твой ответ...')
+                    button.lesson__form-button.button.button--form(type="submit") Отправить задание
+                    input(type="hidden" name="userId" value="" + userId)
+                    input(type="hidden" name="lesson" value="" + lesson)
+
+block footer
+    include ../includes/footer-user.pug
+    dialog#modal.modal
+        .modal__body
+            h2 Успешно отправлено
+            p
+                | Ваш ответ записан и отправлен на проверку, Вам придет уведомление в
+                | телеграм-бот о результате проверки
+            button.button.button--back(onclick='window.modal.close()')
+                | Закрыть
+    dialog#modal-error.modal
+        .modal__body
+            h2 Упс
+            p Произошла какая-то ошибка, попробуйте отправить еще ра
+            button.button.button--back(onclick='window.modalError.close()')
+                | Закрыть 
+    script(src="/js/ajax.js")

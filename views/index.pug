@@ -1,0 +1,82 @@
+extends layouts/main.pug
+
+block header
+    include includes/header-main.pug
+
+block content
+    .course
+        .course__inner.container
+            .course__main
+                .course__cost
+                    p Бесплатно
+                .course__title
+                    h1 Воронка и телега
+                .course__description
+                    p
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    | eiusmod tempor incididunt ut labore et dolore magna aliqua
+                button.course__button.button
+                    a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+
+    .learn
+        .learn__inner.container
+            .learn__title
+                h2 Что ты изучишь
+            .learn__cards
+                .learn__card.card
+                    .card__image
+                        img(src='/images/learn-1.jpg', alt='', loading='lazy')
+                    .card__info
+                        h4.card__title Название урока
+                        p.card__description
+                            | Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            | Sapiente, culpa?
+                        button.card__button.button
+                            a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+                .learn__card.card
+                    .card__image
+                        img(src='/images/learn-2.jpg', alt='', loading='lazy')
+                    .card__info
+                        h4.card__title Название урока
+                        p.card__description
+                            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            | Exercitationem alias veniam eius adipisci perspiciatis dolores
+                            | ea laboriosam cupiditate assumenda unde!
+                        button.card__button.button
+                            a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+                .learn__card.card
+                    .card__image
+                        img(src='/images/learn-3.jpg', alt='', loading='lazy')
+                    .card__info
+                        h4.card__title Название урока
+                        p.card__description
+                            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            | Perferendis esse omnis ad nihil dolores molestias.
+                        button.card__button.button
+                            a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+                .learn__card.card
+                    .card__image
+                        img(src='/images/learn-4.jpg', alt='', loading='lazy')
+                    .card__info
+                        h4.card__title Название урока
+                        p.card__description
+                            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            | Accusamus nulla enim atque eius. Officiis, quas impedit ipsum
+                            | quod dicta, sunt, expedita vero dolorem voluptates error
+                            | incidunt eius tempore dolores at.
+                        button.card__button.button
+                            a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+                .learn__card.card
+                    .card__image
+                        img(src='/images/learn-5.jpg', alt='', loading='lazy')
+                    .card__info
+                        h4.card__title Название урока
+                        p.card__description
+                            | Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            | Reiciendis ad libero at ipsam praesentium eum, animi eius quia
+                            | quos ea.
+                        button.card__button.button
+                            a(href="tg://resolve?start=run&domain=voronkaTest2_bot" target="_blank") Обучиться бесплатно в Telegram
+
+block footer 
+    include includes/footer-main.pug 

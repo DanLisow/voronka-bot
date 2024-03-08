@@ -1,0 +1,16 @@
+extends layouts/main.pug
+
+block append header
+    include includes/header-main.pug
+
+block content
+    .warn
+        .warn__inner.container
+            .warn__title
+                h2 #{text}
+            .warn__back
+                button.button.button--back(onclick='window.history.back()')
+                    | Назад
+
+block footer
+    include includes/footer-main.pug

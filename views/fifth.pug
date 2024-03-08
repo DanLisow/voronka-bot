@@ -1,0 +1,14 @@
+extends layouts/user.pug
+
+block video
+    video(controls='', poster='/images/learn-5.jpg', preload='metadata', controlslist='nodownload', width='800', height='450')
+        source(src='/images/video.mp4', type='video/mp4')
+        source(src='/images/video.webm', type='video/webm')
+block task 
+    .lesson__task-description
+        p
+            | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+            | voluptatibus, explicabo ratione voluptate fugiat quia
+            | consequuntur? Dolorum provident corporis error? Accusamus nihil
+            | minima quae explicabo id ducimus incidunt nulla quisquam aliquid
+            | veniam similique sequi eaque rerum aut quod, pariatur enim!
