@@ -17,8 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", router);
 
-bot.launch();
-
 // Запуск сервера
 const start = async () => {
   try {
