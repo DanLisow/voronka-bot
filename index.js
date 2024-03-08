@@ -5,6 +5,7 @@ const connect = require("./db");
 const app = express();
 const path = require("path");
 const router = require("./routes/index");
+const crypto = require("crypto");
 
 const PORT = process.env.PORT || 5000;
 
@@ -28,6 +29,18 @@ const start = async () => {
     connect.once("open", () => {
       console.log("Успешное подключение к MongoDB");
     });
+
+    if (process.env.ENVIRONMENT === "development") {
+      bot.launch();
+    } else {
+      bot.launch({
+        webhook: {
+          domain: process.env.DOMAIN,
+          port: 8080,
+          secretToken: crypto.randomBytes(64).toString("hex"),
+        },
+      });
+    }
 
     app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
   } catch (error) {
