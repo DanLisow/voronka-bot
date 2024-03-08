@@ -31,13 +31,17 @@ const start = async () => {
     if (process.env.ENVIRONMENT === "development") {
       bot.launch();
     } else {
-      bot.launch({
-        webhook: {
-          domain: process.env.DOMAIN,
-          port: 8080,
-          secretToken: crypto.randomBytes(64).toString("hex"),
-        },
-      });
+      bot
+        .launch({
+          webhook: {
+            domain: process.env.DOMAIN,
+            port: 8080,
+            secretToken: crypto.randomBytes(64).toString("hex"),
+          },
+        })
+        .then(() => {
+          console.info(`The bot ${bot.botInfo.username} is running on server`);
+        });
     }
 
     app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
